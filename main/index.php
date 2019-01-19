@@ -51,7 +51,6 @@
                        <p><strike class="sale"><?php echo formatPrice($item['price']); ?></strike><b class="price">  <?php echo formatPriceSale($item['price'],$item['sale']); ?></b></p>
                     </div>
                     <div class="hidenitem">
-                       <!-- <p><a href=""><i class="fa fa-search"></i></a></p> -->
                        <p><a href=""><i class="fa fa-heart"></i></a></p>
                        <p><a href=""><i class="fa fa-shopping-basket"></i></a></p>
                     </div>

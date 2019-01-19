@@ -80,7 +80,7 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li>
-                        <a href="<?php echo base_url(); ?>/admin"><i class="fa fa-fw fa-dashboard"></i> Bảng điều khiển</a>
+                        <a style="font-size: 150%;" href="">Xin chào Admin</a>
                     </li>
 
                     <li class="<?php echo isset($open) && $open == 'category' ? 'active' : ''; ?>">
@@ -92,16 +92,16 @@
 
                     </li>
                     <li class="<?php echo isset($open) && $open == 'admin' ? 'active' : ''; ?>">
-                        <a href="<?php echo modules('admin'); ?>"><i class="fa fa-user"></i>  Admin</a>
+                        <a href="<?php echo modules('admin'); ?>"><i class="fa fa-user"></i>   Admin</a>
 
                     </li>
-                    <li>
-                        <a href="#"><i class="fa fa-fw fa-desktop"></i> Phần tử</a>
+                    <li class="<?php echo isset($open) && $open == 'users' ? 'active' : ''; ?>">
+                        <a href="<?php echo modules('users'); ?>"><i class="fa fa-user"></i> Thành viên</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-wrench"></i> Nhiều ra</a>
+                        <a href="#"><i class="fa fa-user"></i> Quản lý đơn hàng</a>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo" class="collapsed" aria-expanded="false"><i class="fa fa-fw fa-arrows-v"></i> Xuống <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse" aria-expanded="false" style="height: 0px;">
                             <li>
@@ -111,9 +111,9 @@
                                 <a href="#">Xuống 2</a>
                             </li>
                         </ul>
-                    </li>
+                    </li> -->
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-dashboard"></i>Không có gì</a>
+                        <a href="#"><i class="fa fa-fw fa-dashboard"></i>Thêm</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-fw fa-dashboard"></i>Cuối trang</a>

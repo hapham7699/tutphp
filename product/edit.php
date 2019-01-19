@@ -6,6 +6,7 @@
 
 	$id = intval(getInput('id'));	
 	$category = $db->fetchAll('category');
+
 	$editproduct = $db->fetchID("product",$id);
 	if(empty($editproduct))
 	{
@@ -60,8 +61,8 @@
 	                $file_name = $_FILES['thunbar']['name'];
 	                $file_tmp = $_FILES['thunbar']['tmp_name'];
 	                $file_type = $_FILES['thunbar']['type'];
-	                $file_erro = $_FILES['thunbar']['error'];
-	                if($file_erro==0)
+	                $file_error = $_FILES['thunbar']['error'];
+	                if($file_error == 0)
 	                {
 	                    $part = "ROOT"."product/";
 	                    $data['thunbar']= $file_name;
@@ -70,7 +71,7 @@
 	            $update =$db->update("product",$data,array("id"=>$id));
 				if($update > 0)
 				{
-
+                    move_uploaded_file($file_tmp, $part.$file_name);
 					$_SESSION['success'] = "Cập nhật thành công";
 					redirectAdmin('product');
 				}
@@ -116,7 +117,7 @@
 			
 		</div>
 		<div class="col-md-12">
-			<form class="form-horizontal" action="" method="POST" enctype= "multipart/form-data">
+			<form class="form-horizontal" action="" method="POST" enctype="multipart/form-data">
 				 <div class="form-group">
                     <label class="control-label col-sm-2" for="name">Tên danh mục:</label>
                     <div class="col-sm-8">
@@ -219,12 +220,19 @@
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="price">Mô tả sản phẩm:</label>
                     <div class="col-sm-8">
-                        <textarea class="form-control" name="content" id="content" rows="3" required="required" value="<?php echo $editproduct['content']; ?>"></textarea>
+                        <textarea class="form-control" name="content" id="content" rows="3" required="required" value="<?php echo $editproduct['content'] ?>"></textarea>
                         <?php 
-                        if(isset($error['content'])): ?>
-                        <p class="text-danger"><?php echo $error['content']; ?></p> 
+                            if(isset($error['content'])): 
+                        ?>
+
+                        <p class="text-danger">
                         <?php 
-                        endif; ?>
+                            echo $error['content']; 
+                        ?></p> 
+
+                        <?php 
+                            endif; 
+                        ?>
                     </div>
                 </div>    
 

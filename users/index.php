@@ -1,5 +1,5 @@
 <?php 
-    $open = "admin";
+    $open = "users";
     include ("../autoload.php");
     
     if(isset($_GET['page']))
@@ -11,13 +11,13 @@
         $p=1;
     }
 
-    $sql = "SELECT admin.*FROM admin ORDER BY ID DESC";
-    $admin = $db->fetchJone('admin',$sql,$p,3,true);
+    $sql = "SELECT users.*FROM users ORDER BY ID DESC";
+    $users = $db->fetchJone('users',$sql,$p,3,true);
 
-    if(isset($admin['page']))
+    if(isset($users['page']))
     {
-        $sotrang = $admin['page'];
-        unset($admin['page']);
+        $sotrang = $users['page'];
+        unset($users['page']);
     } 
 ?>
 <?php 
@@ -31,7 +31,7 @@
             </h1>
             <ol class="breadcrumb">
                 <li>
-                    <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+                    <i class="fa fa-dashboard"></i>  <a href="#">Dashboard</a>
                 </li>
                 <li class="active">
                     <i class="fa fa-file"></i>Sản phẩm
@@ -53,21 +53,17 @@
                         <th>Name</th>
                         <th>Email</th>
                         <th>Số điện thoại</th>
-                        <th>Action</th>
+                        <th>Địa chỉ</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php $stt= 1; foreach ($admin as $item) { ?>
+                    <?php $stt= 1; foreach ($users as $item) { ?>
                         <tr>
                             <td><?php echo $stt; ?></td>
                             <td><?php echo $item['name']; ?></td>
                             <td><?php echo $item['email']; ?></td>
                             <td><?php echo $item['phone']; ?></td>
-                            <td>
-                                <a class="btn btn-xs btn-info" href="edit.php?id=<?php echo $item['id']; ?>"><i class="fa fa-edit">Sửa</i></a>
-                                <a class="btn btn-xs btn-danger" href="delete.php?id=<?php echo $item['id']; ?>"><i class="fa fa-trash">Xóa</i></a>
-                            </td>
-
+                             <td><?php echo $item['address']; ?></td>
                         </tr>
                     <?php $stt++; }?>
                 </tbody>
@@ -99,9 +95,6 @@
                                         <a href="?page= <?php echo $i; ?>"><?php echo $i; ?></a>
                                     </li>
                                 <?php endfor; ?>
-                                    <!-- <li><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li> -->
                                     <li>
                                         <a href="#" aria-label="Next">
                                             <span aria-hidden="true">&raquo;</span>

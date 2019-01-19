@@ -27,29 +27,34 @@
 	    if(postInput('name') == '')
 	    {
 	        $error['name'] = "Tên không được để trống";
+            $name = postInput('name');
 	    }
 	    if(postInput('email') == '')
 	    {
 	        $error['email'] = "Email không được để trống";
+            $email = postInput('email');
 	    }
 	    if(postInput('phone') == '')
 	    {
 	        $error['phone'] = "Số điện thoại không được để trống";
+            $phone = postInput('phone');
 	    }
 	    if(postInput('address') == '')
 	    {
 	        $error['address'] = "Địa chỉ không được để trống";
+            $address = postInput('address');
 	    }
 	    if(postInput('password') == '')
 	    {
 	        $error['password'] = "Mật khẩu không được để trống";
+            $password = postInput('password');
 	    }
     
-	        $sql = "INSERT INTO users(name,email,password,phone,address)
+	        /*$sql = "INSERT INTO users(name,email,password,phone,address)
 	        VALUES ('".$name."','".$email."','".$password."','".$phone."','".$address."')";
 	        $insert = mysqli_query($conn,$sql) or die;
-	        echo $sql;
-	    if(!empty($error))
+	        echo $sql;*/
+	    if(empty($error))
 	    {
 	        $sql = "INSERT INTO users(name,email,password,phone,address)
 	        VALUES ('".$name."','".$email."','".$password."','".$phone."','".$address."')";

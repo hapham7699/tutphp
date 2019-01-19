@@ -14,6 +14,7 @@
             "category_id" => postInput("category_id"),
             "number" => postInput("number"),
             "price" => postInput("price"),
+            "sale" =>postInput("sale"),
             "content" => postInput("content"),
             "thunbar" => postInput("thunbar")
         ];
@@ -32,6 +33,10 @@
         {
             $error['price'] = "Mời bạn nhập giá sản phẩm";
         }
+        if(postInput('sale') == '')
+        {
+            $error['sale'] = "Có sale không?";
+        }
         if(postInput('content') == '')
         {
             $error['content'] = "Mời bạn nhập mô tả sản phẩm";
@@ -41,25 +46,40 @@
             $error['number'] = "Mời bạn số lượng";
         }
 
-        if(!isset($FILES['thunbar']))
+        if(isset($FILES['thunbar']))
         {
             $error['thunbar'] = "Mời bạn chọn ảnh cho sản phẩm";
         }
 
        
 
-        if(!empty($error))
+        if(empty($error))
         {
+            if(!isset($FILES['thunbar']))
+            {
+                $file_name = $_FILES['thunbar']['name'];
+                $file_tmp = $_FILES['thunbar']['tmp_name'];
+                $file_type = $_FILES['thunbar']['type'];
+                $file_error = $_FILES['thunbar']['error'];
+            }
+            if($file_error ==0)
+            {
+                $part = "ROOT"."product/";
+                $data['thunbar'] = $file_name;
+            }
+
+            _debug($data);
+
             $id_insert = $db->insert("product",$data);
             if($id_insert)
             {
                 $_SESSION['success'] = "Thêm mới thành công";
-                redirectAdmin("admin");
+                redirectAdmin("product");
             }
             else
             {
                 $_SESSION['error'] = "Thêm mới thất bại";
-                redirectAdmin("admin");
+                redirectAdmin("product");
             }
         }     
     }
@@ -94,7 +114,7 @@
         <div class="col-md-12">
             <form class="form-horizontal" action="" method="POST" enctype= "multipart/form-data">
                 <div class="form-group">
-                    <label class="control-label col-sm-2" for="name">Tên danh mục:</label>
+                    <label class="control-label col-sm-2">Tên danh mục:</label>
                     <div class="col-sm-8">
                         <select class="form-control col-md-8" name="category_id">
                             <option value="">Mời bạn chọn danh mục sản phẩm</option>
@@ -138,7 +158,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label col-sm-2" for="price">Số lượng:</label>
+                    <label class="control-label col-sm-2" for="number">Số lượng:</label>
                     <div class="col-sm-8">
                         <input type="number" name="number" class="form-control" id="number" placeholder="0">
                         <?php 
@@ -150,24 +170,31 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label col-sm-2" for="price">Phần trăm giảm:</label>
+                    <label class="control-label col-sm-2" for="sale">Phần trăm giảm:</label>
                     <div class="col-sm-3">
                         <input type="number" name="sale" class="form-control" id="sale" placeholder="10%" value="0">
                     </div>
+                    <?php 
+                        if(isset($error['sale'])): ?>
+                        <p class="text-danger"><?php echo $error['sale']; ?></p> 
+                    <?php 
+                        endif; 
+                    ?>
 
-                    <label class="control-label col-sm-2" for="price">Ảnh sản phẩm:</label>
+                    <label class="control-label col-sm-2" for="thunbar">Ảnh sản phẩm:</label>
                     <div class="col-sm-3">
                         <input type="file" name="thunbar" class="form-control" id="thunbar">
                     </div>
                     <?php 
                         if(isset($error['thunbar'])): ?>
                         <p class="text-danger"><?php echo $error['thunbar']; ?></p> 
-                        <?php 
-                        endif; ?>
+                    <?php 
+                        endif; 
+                    ?>
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label col-sm-2" for="price">Mô tả sản phẩm:</label>
+                    <label class="control-label col-sm-2" for="content">Mô tả sản phẩm:</label>
                     <div class="col-sm-8">
                         <textarea class="form-control" name="content" id="content" rows="3" required="required"></textarea>
                         <?php 

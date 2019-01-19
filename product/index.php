@@ -12,7 +12,7 @@
     }
 
     $sql = "SELECT product.*,category.name AS namecate FROM product LEFT JOIN category ON category.id = product.category_id";
-    $product = $db->fetchJone('product',$sql,$p,5,true);
+    $product = $db->fetchJone('product',$sql,$p,4,true);
 
     if(isset($product['page']))
     {
@@ -31,7 +31,7 @@
             </h1>
             <ol class="breadcrumb">
                 <li>
-                    <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+                    <i class="fa fa-dashboard"></i><a href="">Dashboard</a>
                 </li>
                 <li class="active">
                     <i class="fa fa-file"></i>Sản phẩm
@@ -87,42 +87,42 @@
             </table>
             <div  class="pull-right">
                 <nav aria-label="Page navigation" class="clearfix">
-                                <ul class="pagination">
-                                    <li>
-                                        <a href="#" aria-label="Previous">
-                                            <span aria-hidden="true">&laquo;</span>
-                                        </a>
-                                    </li>
+                    <ul class="pagination">
+                        <li>
+                            <a href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
 
-                                    <?php 
-                                        for ($i=1; $i < $sotrang ; $i++):
-                                    ?>
-                                    <?php 
-                                        if(isset($_GET['page']))
-                                        {
-                                            $p = $_GET['page'];
-                                        }
-                                        else
-                                        {
-                                            $p= 1;
-                                        }
-                                    ?>
+                        <?php 
+                            for ($i=1; $i <= $sotrang ; $i++):
+                        ?>
+                        <?php 
+                            if(isset($_GET['page']))
+                            {
+                                $p = $_GET['page'];
+                            }
+                            else
+                            {
+                                $p= 1;
+                            }
+                        ?>
 
-                                    <li class="<?php echo ($i==$p)? 'active' : '' ?>">
-                                        <a href="?page= <?php echo $i; ?>"><?php echo $i; ?></a>
-                                    </li>
-                                <?php endfor; ?>
-                                    <!-- <li><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li> -->
-                                    <li>
-                                        <a href="#" aria-label="Next">
-                                            <span aria-hidden="true">&raquo;</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
+                        <li class="<?php echo ($i==$p)? 'active' : '' ?>">
+                            <a href="?page= <?php echo $i; ?>"><?php echo $i; ?></a>
+                        </li>
+                    <?php endfor; ?>
+                        <!-- <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li> -->
+                        <li>
+                            <a href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </div>
 <?php 

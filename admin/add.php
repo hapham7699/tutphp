@@ -4,7 +4,7 @@
     require_once ("../autoload.php");
  
 
-     $data =
+    $data =
         [ 
             "name" => postInput('name'),
             "email" => postInput("email"),
@@ -14,7 +14,7 @@
             "level" => postInput("level")
         ];
 
-
+    
     if($_SERVER['REQUEST_METHOD'] == 'POST')
     {
        
