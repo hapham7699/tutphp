@@ -16,12 +16,8 @@
 					<div class="clearfix"> </div>
 				</div>
 				<div class="latter-right">
-					<p>Theo dõi chúng tôi</p>
-					<ul class="face-in-to">
-						<li><a href="#"><span class="facebook-in"></span></a></li>
-						<li><a href="#"><span class="facebook-in"></span></a></li>
-						<div class="clearfix"> </div>
-					</ul>
+					<p>Theo dõi chúng tôi 
+					</p>
 					<div class="clearfix"> </div>
 				</div>
 				<div class="clearfix"> </div>

@@ -11,7 +11,14 @@
  	mysqli_set_charset($conn,"utf8");
  ?>
 
-<?php 
+<?php   
+    if(isset($_SESSION['name_id']))
+    {
+        echo "<script>
+                        alert('Bạn đã đăng nhập thành công');
+                        location.href='home.php';
+                    </script>";
+    }
 	$name = $password =$address = $email = $phone = '';
 
     $data =
@@ -184,7 +191,7 @@
                 </ul>
             </div>
             </div>
-                 <a class="view-all all-product" href="index.php">Xem tất cả sản phẩm<span> </span></a>   
+                 <a class="view-all all-product" href="danhmucsanpham.php">Xem tất cả sản phẩm<span> </span></a>   
         </div>  
 </div>
 <?php 

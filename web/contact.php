@@ -52,7 +52,7 @@
 			</div>
 				<div class=" chain-grid menu-chain">
    		     	</div>
-   		     	 <a class="view-all all-product" href="product.php">Xem tất cả sản phẩm<span> </span></a> 	
+   		     	 <a class="view-all all-product" href="danhmucsanpham.php">Xem tất cả sản phẩm<span> </span></a> 	
 		</div>
 	<div class="clearfix"></div>
 </div>

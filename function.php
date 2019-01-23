@@ -164,4 +164,21 @@
         return formatPrice($price);
 
     }
+
+    function sale($number)
+    {
+        $number = intval($number);
+        if($number<50000000)
+        {
+            return 0;
+        }
+        else if($number<100000000)
+        {
+            return 5;
+        }
+        else
+        {
+            return 10;
+        }
+    }
 ?>

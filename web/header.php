@@ -1,7 +1,12 @@
+<?php 
+	include("../autoload.php");
+	error_reporting(1);
+?>
 <!DOCTYPE html>
 <html>
 <head>
 <title>Laptop Store</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />	
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -32,13 +37,8 @@
 							</select>
 					 </div>
 					<div class="down-top top-down">
-						  <select class="in-drop">
 						  
-						  <option value="Dollar" class="in-of">Dollar</option>
-						  <option value="VND" class="in-of">VND</option>
-							</select>
 					 </div>
-					 <!---->
 					<div class="clearfix"> </div>	
 				</div>
 				<div class="clearfix"> </div>		
@@ -48,21 +48,27 @@
 			<div class="container">
 				<div class="header-bottom-left">
 					<div class="logo">
-						<a class="fa fa-fa-logo" href="index.php">
-							<button type="button" class="btn btn-primary">Trang chủ</button></a>
+						<a class="fa fa-fa-home" href="home.php">
+							<button class="btn btn-success" style="font-size:24px">Trang chủ <i class="fa fa-home"></i></button></a>
 					</div>
 					<div class="search">
-						<input type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" >
-						<input type="submit"  value="SEARCH">
-
+						<input type="text" name="search" id="search" value="" placeholder="Nhập để tìm kiếm">
 					</div>
 					<div class="clearfix"> </div>
 				</div>
 				<div class="header-bottom-right">
-					<a href="viewcart.php"><span> <button type="button" class="btn btn-success">Giỏ hàng</button></span></a>					
-					<a href="login.php"><span><button type="button" class="btn btn-success">Tài khoản</button> </span></a>
-					<a class="fa fa-fw fa-user" href="login.php"><span> </span> <button type="button" class="btn btn-success">Đăng nhập</button></a>
-					<a class="fa fa-fw fa-user" href="register.php"><button type="button"class="btn btn-success">Đăng ký</button></a>
+				<?php 
+					if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+                               echo '<a href="account.php"><span> <button style="color: black;" type="button" class="btn btn-success">Xin chào '.$_SESSION["name_user"].'</button></span></a>';
+                               echo '<a class="fa fa-cart" href="viewcart.php"><span> <button type="button" class="btn btn-success">Giỏ hàng</button></span></a>
+						<a href="thoat.php"><span><button type="button" class="btn btn-success"><i class = "fa fa-share-square-o">Thoát</i></button> </span></a>';
+                    }
+                    else
+                    {
+                       echo '<a href="login.php"><span> </span> <button type="button" class="btn btn-success">Đăng nhập</button></a>
+						<a  href="register.php"><button type="button"class="btn btn-success">Đăng ký</button></a>';
+                   	} 
+				?>
 					<div class="clearfix"> </div>
 				</div>
 				<div class="clearfix">

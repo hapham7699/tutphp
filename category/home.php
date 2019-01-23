@@ -8,7 +8,7 @@
 
 	if(empty($editCategory))
 	{
-		$_SESSION['error'] = "Dữ liệu khong tồn tại";
+		$_SESSION['error'] = "Dữ liệu không tồn tại";
 		redirectAdmin('category');
 	}
 	$home = $editCategory['home'] == 0 ? 1 : 0;

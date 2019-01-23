@@ -98,20 +98,10 @@
                     <li class="<?php echo isset($open) && $open == 'users' ? 'active' : ''; ?>">
                         <a href="<?php echo modules('users'); ?>"><i class="fa fa-user"></i> Thành viên</a>
                     </li>
-                    <li>
-                        <a href="#"><i class="fa fa-user"></i> Quản lý đơn hàng</a>
+                    <li class="<?php echo isset($open) && $open == 'transaction' ? 'active' : ''; ?>">
+                        <a href="#"><i ></i> Quản lý đơn hàng</a>
                     </li>
-                    <!-- <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo" class="collapsed" aria-expanded="false"><i class="fa fa-fw fa-arrows-v"></i> Xuống <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo" class="collapse" aria-expanded="false" style="height: 0px;">
-                            <li>
-                                <a href="#">Xuống 1</a>
-                            </li>
-                            <li>
-                                <a href="#">Xuống 2</a>
-                            </li>
-                        </ul>
-                    </li> -->
+                    </li>
                     <li>
                         <a href="#"><i class="fa fa-fw fa-dashboard"></i>Thêm</a>
                     </li>

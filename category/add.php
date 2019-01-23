@@ -53,10 +53,7 @@
         </h1>
         <ol class="breadcrumb">
             <li>
-                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
-            </li>
-            <li>
-                <i></i>  <a href="#">Danh mục</a>
+                <i></i>  <a href="index.php">Danh mục</a>
             </li>
             <li class="active">
                 <i class="fa fa-file"></i>Thêm mới

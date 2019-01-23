@@ -2,6 +2,9 @@
 	include("header.php");
 	include("../autoload.php");
 	$category = $db->fetchAll('category');
+	$id = intval(getInput('id'));
+	$product = $db->fetchID("product",$id);
+	$cate = $product['category_id'];
 ?>
 <div class="container"> 
 	<div class=" single_top">
@@ -10,28 +13,42 @@
 		
 			</div> 
 			<div class="desc1 span_3_of_2">
-				<h4>Một ít thông tin</h4>
+				<h3 class="m_3">CHI TIẾT SẢN PHẨM</h3>
 				<div class="cart-b">
-					<div class="left-n ">Giá sản phẩm
+					<div class="pull-right">
+						<a href=""><img width="50%" height="50%" src="../public/uploads/product/<?php echo $product['thunbar'] ?>"></a>
+						
 					</div>
-				    <a class="now-get get-cart-in" href="#">Thêm vô giỏ hàng</a> 
+					<div class="left-n">
+						<a href=""> Giá sản phẩm: <?php echo $product['price']; ?> đ</a>
+					</div>
+					<div class="left-n">
+						<a href=""> Nội dung: <?php echo $product['content']; ?></a>
+					</div>
+					<div class="left-n">
+						<a href=""> Ngày sản xuất: <?php echo $product['updated_at']; ?></a>
+					</div>
+					<div class="left-n">
+						<a href=""> Bảo hành: 2 năm</a>
+					</div>
+
+
+				    
 				    <div class="clearfix">
-				    	
 				    </div>
+				    <button class="btn btn-success" href="single.php?action=add&id=<?php echo $product['id'] ?>">Mua </button>
 				</div>
 
-				<h6>Còn một số sản phẩm liên quan</h6>
-			   	<p>Mô tả sản phẩm</p>
+				<h3 class="m_3">SẢN PHẨM LIÊN QUAN</h3>
+			   	<p></p>
 			   	<div class="share">
 					<h5>Chia sẻ sản phẩm :</h5>
-					<ul class="share_nav">
+					<!-- <ul class="share_nav">
 						<li><a href="#"><img  title="facebook"></a></li>
 						<li><a href="#"><img  title="Twiiter"></a></li>
 						<li><a href="#"><img  title="Google+"></a></li>
-		    		</ul>
+					</ul> -->
 				</div>
-			   
-				
 			</div>
           	<div class="clearfix"></div>
         </div>
@@ -39,8 +56,7 @@
 		<script type="text/javascript" src="js/jquery.flexisel.js"></script>
 
 	    <div class="toogle">
-	     	<h3 class="m_3">CHI TIẾT SẢN PHÂM</h3>
-	     	<p class="m_text"><?php echo "Chi tiết sản phẩm"; ?></p>
+	     	
 	    </div>	
     </div>
           	   
@@ -64,8 +80,7 @@
 					</ul>
 				</ul>
 			</div>
-				
-   		     	 <a class="view-all all-product" href="product.php">Xem tất cả sản phẩm<span> </span></a> 	
+   		    <a class="view-all all-product" href="danhmucsanpham.php">Xem tất cả sản phẩm<span> </span></a> 	
 		</div>
   	<div class="clearfix"></div>
 </div>

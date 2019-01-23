@@ -26,15 +26,11 @@
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-                Danh sách sản phẩm
-                <a href="add.php" class="btn btn-success">Thêm mới</a>
+                Danh sách người dùng
             </h1>
             <ol class="breadcrumb">
-                <li>
-                    <i class="fa fa-dashboard"></i>  <a href="#">Dashboard</a>
-                </li>
                 <li class="active">
-                    <i class="fa fa-file"></i>Sản phẩm
+                    <i class="fa fa-file"></i>Người dùng
                 </li>
             </ol>
             <div class="clearfix">
